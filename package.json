@@ -109,5 +109,8 @@
   "license": "ISC",
   "devDependencies": {
     "process": "^0.11.10"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
