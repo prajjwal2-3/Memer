@@ -26,7 +26,13 @@ export default function Meme() {
       randomImage: url,
     }));
   }
-
+  async function downloadImage() {
+    const canvas = await html2canvas(document.getElementById("meme"), {
+      useCORS: true,
+    });
+    const dataURL = canvas.toDataURL("image/png");
+    download(dataURL, "download.png", "image/png");
+  }
   function handleChange(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => ({
@@ -63,6 +69,7 @@ export default function Meme() {
         <h2 className="meme--text top">{meme.topText}</h2>
         <h2 className="meme--text bottom">{meme.bottomText}</h2>
       </div>
+      
     </main>
   );
 }
